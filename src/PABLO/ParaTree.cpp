@@ -1803,6 +1803,20 @@ namespace bitpit {
         return centerCoords;
     }
 
+	/*! Get the coordinates of the center of an edge of an octant.
+		* \param[in] oct Pointer to the target octant
+		* \param[in] iedge Index of the target edge.
+		* \return center Coordinates of the center of the iedge-th edge of octant.
+		*/
+	   darray3
+	   ParaTree::getEdgeCenter(const Octant* oct, uint8_t iedge) const {
+			   darray3 center;
+			   darray3 center_ = oct->getLogicalEdgeCenter(iedge);
+			   m_trans.mapCenter(center_, center);
+			   return center;
+	   }
+
+
     /*! Get the coordinates of the center of a face of an octant.
      * \param[in] oct Pointer to the target octant
      * \param[in] face Index of the target face.

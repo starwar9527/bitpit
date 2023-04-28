@@ -582,6 +582,20 @@ namespace bitpit {
         return center;
     };
 
+	/*! Get the coordinates of the center of an edge of an octant.
+		* \param[in] oct Pointer to the target octant
+		* \param[in] iedge Index of the target edge.
+		* \return center Coordinates of the center of the iedge-th edge of octant.
+		*/
+	   darray3
+	   PabloUniform::getEdgeCenter(const Octant* oct, uint8_t iedge) const {
+			   darray3 center, center_ = ParaTree::getEdgeCenter(oct, iedge);
+			   for (int i=0; i<3; i++){
+					   center[i] = m_origin[i] + m_L * center_[i];
+			   }
+			   return center;
+	   };
+
     /*! Get the coordinates of single node of an octant.
      * \param[in] oct Pointer to the target octant
      * \param[in] inode Index of the target node.

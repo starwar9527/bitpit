@@ -351,6 +351,7 @@ namespace bitpit {
         double 		getVolume(const Octant* oct) const;
         void 		getCenter(const Octant* oct, darray3& centerCoords) const;
         darray3 	getCenter(const Octant* oct) const;
+        darray3     getEdgeCenter(const Octant* oct, uint8_t iedge) const;
         darray3 	getFaceCenter(const Octant* oct, uint8_t face) const;
         void 		getFaceCenter(const Octant* oct, uint8_t face, darray3& centerCoords) const;
         darray3 	getNode(const Octant* oct, uint8_t node) const;
